@@ -1,4 +1,4 @@
-# main.py
+# index.py
 import json
 from typing import List
 from fastapi import FastAPI, Query
