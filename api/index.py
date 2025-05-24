@@ -10,7 +10,7 @@ from fastapi.middleware.cors import CORSMiddleware
 app = FastAPI()
 
 # Load student marks from JSON once on startup
-with open (os.path.join(os.path.dirname(__file__), "../q-vercel-python.json"), "r") as f:
+with open (os.path.join(os.path.dirname(__file__), "home/gouri/student-marks-api/q-vercel-python.json"), "r") as f:
     marks_data = json.load(f)
     print("Loaded marks:", marks_data)
 
