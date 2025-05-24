@@ -3,7 +3,7 @@
 import json
 import logging
 from typing import List
-from fastapi import FastAPI
+from fastapi import FastAPI, Query
 from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -30,9 +30,7 @@ app.add_middleware(
 )
 
 @app.get("/api")
-def get_marks(name: List[str] = None):
-    if name is None:
-        name = []
+def get_marks(name: List[str] = Query(default=[])):
     logging.info("Query received: %s", name)
     result = [{n: marks_data.get(n, "Not Found")} for n in name]
     return JSONResponse(content={"marks": result})
